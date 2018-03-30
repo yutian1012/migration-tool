@@ -91,7 +91,13 @@ public class MigrationTask implements Runnable {
 		}
 	}
 	
-	
+	/**
+	 * 每个表都配置了相应的min,max属性，查看config.properties文件中的
+	 * R_ALLHA_PERCENTAGE_minId=1
+	 * R_ALLHA_PERCENTAGE_maxId=9999
+	 * 即针对表R_ALLHA_PERCENTAGE迁移的数据区段
+	 * @return
+	 */
 	public boolean get_segement() {
 		String[] bodies = null;
 		for(int i = 0; i < 10; i++) {

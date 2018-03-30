@@ -211,6 +211,7 @@ public class JdbcManager {
 				List<String> list = new ArrayList<String>(rsmd.getColumnCount());
 				String sp_code = "";
 				String all_content = "";
+				//处理一行数据中的列字段
 				for (int i = 1; i <= rsmd.getColumnCount(); i++) {
 					String column = rsmd.getColumnName(i).toLowerCase();
 					String value = rs.getString(i);
@@ -287,6 +288,7 @@ public class JdbcManager {
 				ps = conn_to.prepareStatement(select_sql);
 				for(List<String> list : segementValues) {
 					int size = exist_all_content ? list.size() - 1 : list.size();
+					//验证每一条数据是否存在，会将所有列字段都拼接到where条件中
 					for(int i=0; i<size; i++) {
 						ps.setString(i + 1, list.get(i));
 					}

@@ -27,6 +27,7 @@ public class StartMigration {
 		Class.forName("com.mysql.jdbc.Driver");
 		//
 		int nThreads = Integer.parseInt(Config.getSetting("thread_num"));
+		//创建NamedThreadFactory目的是为线程池中的线程命名，并放在同一个线程组中
 		ExecutorService threadPool = Executors.newFixedThreadPool(nThreads, new NamedThreadFactory("migration"));
 		
 		for(int i=0; i<nThreads; i++) {

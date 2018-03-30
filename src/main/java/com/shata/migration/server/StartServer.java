@@ -36,6 +36,7 @@ public class StartServer {
 		
 		final NettyServer nettyServer = new NettyServer();
 		
+		//java虚拟机关闭时，调用hook关闭netty服务器
 		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
 			
 			@Override

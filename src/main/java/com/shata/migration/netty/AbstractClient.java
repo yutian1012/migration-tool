@@ -46,6 +46,7 @@ public abstract class AbstractClient implements Client {
 		}
 		Object result = null;
 		try {
+			//获取相应数据
 			result = responseQueue.poll(getConnectTimeout() - (System.currentTimeMillis() - beginTime), TimeUnit.MILLISECONDS);
 		} catch (Exception e) {
 			responses.remove(requestId);

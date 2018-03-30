@@ -24,6 +24,7 @@ public class NettyClient extends AbstractClient {
 		final long beginTime = System.currentTimeMillis();
 		final Client self = this;
 		ChannelFuture writeFuture = cf.getChannel().write(message);
+		//是否发送到服务器的监听
 		writeFuture.addListener(new ChannelFutureListener() {
 			public void operationComplete(ChannelFuture future) throws Exception {
 				if (future.isSuccess()) {

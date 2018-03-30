@@ -40,6 +40,7 @@ public class NettyClientFactory extends AbstractClientFactory {
 		} else {
 			bootstrap.setOption("connectTimeoutMillis", connectTimeout);
 		}
+		//监听服务器返回数据的handler
 		NettyClientHandler handler = new NettyClientHandler(this);
 		bootstrap.setPipelineFactory(new NettyClientPipelineFactory(handler));
 		ChannelFuture future = bootstrap.connect(new InetSocketAddress(targetIP, targetPort));
